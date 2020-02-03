@@ -138,5 +138,4 @@ point_button.addEventListener('click', function () {
 })
 inverse_button.addEventListener('click', function () {
     result_p.innerHTML = parseFloat((1 / Number(str)).toFixed(12));
-    
 })
