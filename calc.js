@@ -27,6 +27,7 @@ const dayMode_button = document.getElementById('day');
 const darkMode_button = document.getElementById('dark');
 
 let str = '';
+let arr = [];
 
 darkMode_button.addEventListener('click', function () {
     document.getElementById('body').classList.add('night');
@@ -138,4 +139,38 @@ point_button.addEventListener('click', function () {
 })
 inverse_button.addEventListener('click', function () {
     result_p.innerHTML = parseFloat((1 / Number(str)).toFixed(12));
+})
+add_button.addEventListener('click', function () {
+    arr.push(Number(str));
+    arr.push('+');
+    str = '';
+})
+multiply_button.addEventListener('click', function () {
+    arr.push(Number(str));
+    arr.push('*');
+    str = '';
+})
+divide_button.addEventListener('click', function () {
+    arr.push(Number(str));
+    arr.push('/');
+    str = '';
+})
+subtract_button.addEventListener('click', function () {
+    arr.push(Number(str));
+    arr.push('-');
+    str = '';
+})
+equal_button.addEventListener('click', function () {
+    arr.push(Number(str));
+    if (arr.includes('+')) {
+        result_p.innerHTML = arr[0] + arr[2];
+    } else if (arr.includes('*')) {
+        result_p.innerHTML = arr[0] * arr[2];
+    } else if (arr.includes('/')) {
+        result_p.innerHTML = arr[0] / arr[2];
+    } else if (arr.includes('-')) {
+        result_p.innerHTML = arr[0] - arr[2];
+    }
+    str = '';
+    arr = [];
 })
